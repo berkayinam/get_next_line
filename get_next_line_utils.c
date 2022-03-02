@@ -6,7 +6,7 @@
 /*   By: binam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:39:33 by binam             #+#    #+#             */
-/*   Updated: 2022/01/24 21:31:50 by binam            ###   ########.fr       */
+/*   Updated: 2022/02/03 00:32:01 by binam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ char	*get_new_line(char *buffer)
 		return (NULL);
 	while (buffer[i] && buffer[i] != '\n')
 		i++;
-	line = malloc(sizeof(char) * (i + 1 + nl));
+	line = malloc(sizeof(char) * (i + nl + 1));
 	i = 0;
 	while (buffer[i] && buffer[i] != '\n')
 	{

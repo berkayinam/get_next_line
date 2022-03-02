@@ -6,13 +6,13 @@
 /*   By: binam <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 13:38:47 by binam             #+#    #+#             */
-/*   Updated: 2022/01/24 21:30:59 by binam            ###   ########.fr       */
+/*   Updated: 2022/02/02 23:31:56 by binam            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*first_line(int fd, char *buffer)
+char	*get_line(int fd, char *buffer)
 {
 	char	*buff;
 	int		rd_byte;
@@ -42,12 +42,30 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*buffer;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 )
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	buffer = first_line(fd, buffer);
+	buffer = get_line(fd, buffer);
 	if (buffer == NULL)
 		return (NULL);
 	line = get_new_line(buffer);
 	buffer = get_new_buffer(buffer);
 	return (line);
 }
+/*
+int	main()
+{
+	int fd = open("deneme.txt",O_RDONLY);
+	int	bln;
+	bln = 1;
+	char *str;
+	while (bln)
+	{
+		str = get_next_line(fd);
+		if (str)
+		{
+			printf("%s",str);
+		}
+		else
+			bln = 0;
+	}
+}*/
